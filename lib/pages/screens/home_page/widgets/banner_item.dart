@@ -1,3 +1,4 @@
+import 'package:carp_point_app/pages/dependent_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -51,8 +52,8 @@ class _BannerItemState extends State<BannerItem> {
                   height: 6.h,
                   decoration: BoxDecoration(
                     color: selectedIndex == index
-                        ? const Color(0xffffffff)
-                        : const Color(0xffffffff).withOpacity(0.5),
+                        ? kBackgroundColors
+                        : kBackgroundColors.withOpacity(0.5),
                   ),
                 ),
               ),

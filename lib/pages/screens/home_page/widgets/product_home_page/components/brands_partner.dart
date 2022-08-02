@@ -1,9 +1,10 @@
+import 'package:carp_point_app/pages/screens/partner_page/detail_partner_page/detail_partner_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:get/get.dart';
 import '../../../../../dependent_app/constants.dart';
 import '../../../../../dependent_app/text_style.dart';
-import '../../../../partner_page/detail_partner_page/detail_partner_page.dart';
+
 
 class BrandsPartner extends StatelessWidget {
   const BrandsPartner({Key? key}) : super(key: key);
@@ -40,10 +41,7 @@ class BrandsPartner extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       child: GestureDetector(
         onTap: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (contex) => const DetailPartnerPage()));
+          Get.to(() => const DetailPartnerPage());
         },
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 18.w),
@@ -80,7 +78,7 @@ class BrandsPartner extends StatelessWidget {
                         ),
                         child: Text(
                           brands[index]['title'],
-                          style: nameBrandBigYellow,
+                          style: nameBrandSmallBlack,
                           textAlign: TextAlign.center,
                         ),
                       ),

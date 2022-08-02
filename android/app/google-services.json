@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "353040956873",
+    "project_id": "carppointapp",
+    "storage_bucket": "carppointapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:353040956873:android:4970db68514645fd35bc18",
+        "android_client_info": {
+          "package_name": "com.example.carp_point_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "353040956873-slmku9hbrehhlk0fp5h2bl11q2740551.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaKL8ehlT1J7SSJ0-obVnl5W8UBF_Si-Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "353040956873-slmku9hbrehhlk0fp5h2bl11q2740551.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -5,7 +5,6 @@ import 'package:carp_point_app/pages/screens/profile_page/profile_page.dart';
 import 'package:carp_point_app/pages/screens/qr_page/qr_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../dependent_app/constants.dart';
 
 class AccumApp extends StatefulWidget {
@@ -15,6 +14,7 @@ class AccumApp extends StatefulWidget {
 }
 
 class _AccumAppState extends State<AccumApp> {
+  String result = '';
   int seclectedIndex = 0;
   List<Widget> pages = [
     const HomePage(),
@@ -105,7 +105,6 @@ class _AccumAppState extends State<AccumApp> {
       ),
     );
   }
-
   void onTapHandel(int index) {
     setState(
       () {

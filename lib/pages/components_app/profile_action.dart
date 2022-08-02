@@ -16,27 +16,15 @@ class ProfileAction extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        GestureDetector(
-          onTap: onTap,
-          child: Row(
-            children: [
-              Image.asset(imageUrl!),
-              SizedBox(
-                width: 15.w,
-              ),
-              Text(
-                des!,
-                style: desProfile,
-              ),
-            ],
-          ),
-        ),
-        SizedBox(
-          height: 17.h,
-        ),
-      ],
+    return GestureDetector(
+      onTap: onTap,
+      child: Row(
+        children: [
+          Image.asset(imageUrl!),
+          SizedBox(width: 15.w,),
+          Text(des!, style: desProfile,),
+        ],
+      ),
     );
   }
 }

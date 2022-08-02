@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../dependent_app/constants.dart';
 
 class BackGroundProduct extends StatelessWidget {

@@ -24,12 +24,12 @@ class _DetailPartnerPageState extends State<DetailPartnerPage>
     return Scaffold(
       body: Stack(
         children: [
-          const BackgroundPage(),
+    const BackgroundPage(),
           Column(
             children: [
               TitleDetail(
                 title: 'Chi tiết đối tác',
-                widgetLeft: Image.asset("assets/images/Path back.png"),
+                widgetLeft: Image.asset("assets/images/arrow-left.png"),
                 widgetRight: Image.asset("assets/images/Vector heart.png"),
               ),
               SizedBox(

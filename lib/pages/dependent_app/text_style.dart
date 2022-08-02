@@ -65,8 +65,13 @@ final TextStyle textBottomBar = TextStyle(
 final TextStyle textStyleLogin = TextStyle(
   fontSize: 32.sp,
   fontWeight: FontWeight.w700,
+  color: textStyleColor,
 );
-
+final TextStyle textStylePhone = TextStyle(
+  fontSize: 18.sp,
+  fontWeight: FontWeight.w700,
+  color: textPhoneColor,
+);
 final TextStyle titlePage = TextStyle(
   fontSize: 18.sp,
   fontWeight: FontWeight.w700,
@@ -150,4 +155,9 @@ final TextStyle textEditProfile = TextStyle(
   fontSize: 14.sp,
   fontWeight: FontWeight.w400,
   color: kTextPrimaryColors,
+);
+final TextStyle buttonEndow = TextStyle(
+  fontSize: 14.sp,
+  fontWeight: FontWeight.w400,
+  color: kTextButton,
 );

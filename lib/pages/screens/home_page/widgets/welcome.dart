@@ -1,9 +1,13 @@
+
+
+import 'package:carp_point_app/pages/screens/profile_page/profile_screens/user_profile_page/widget/person_information.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 import '../../../dependent_app/constants.dart';
 import '../../../dependent_app/text_style.dart';
-import '../../profile_page/profile_screens/person_information.dart';
+
 
 class Welcome extends StatelessWidget {
   final String userName;
@@ -22,8 +26,7 @@ class Welcome extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const PersonInformation()));
+        Get.to(() =>   PersonInformation());
       },
       child: Container(
         padding: EdgeInsets.only(

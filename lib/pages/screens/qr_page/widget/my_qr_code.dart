@@ -1,11 +1,12 @@
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../components_app/background_page.dart';
 import '../../../components_app/background_product.dart';
 import '../../../components_app/title_detail.dart';
 import '../../../dependent_app/constants.dart';
+import 'package:carp_point_app/pages/components_app/background_product.dart';
+import 'package:carp_point_app/pages/dependent_app/constants.dart';
 
 class MyQRCode extends StatefulWidget {
   const MyQRCode({Key? key}) : super(key: key);
@@ -29,7 +30,7 @@ class _MyQRCodeState extends State<MyQRCode> {
               children: [
                 TitleDetail(
                   title: 'QR Code',
-                  widgetLeft: Image.asset("assets/images/Path back.png"),
+                  widgetLeft: Container(),
                   widgetRight: Container(),
                 ),
                 SizedBox(height: 12.h),
@@ -115,8 +116,9 @@ class _MyQRCodeState extends State<MyQRCode> {
                           SizedBox(
                             height: 40.h,
                             child: BarcodeWidget(
+                              margin: EdgeInsets.symmetric(horizontal: 57.w),
                               data: qrCode,
-                              barcode: Barcode.code128(),
+                              barcode: Barcode.code93(),
                             ),
                           ),
                           SizedBox(height: 37.h),

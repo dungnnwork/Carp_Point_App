@@ -3,7 +3,7 @@ import 'package:carp_point_app/pages/screens/home_page/widgets/product_home_page
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sliver_tools/sliver_tools.dart';
-
+import 'package:get/get.dart';
 import '../../../../endow_page/endow_page.dart';
 import '../../../../partner_page/partner_page.dart';
 
@@ -20,18 +20,16 @@ class StikyTitle extends StatelessWidget {
           TitleBackGroundProduct(
             title: 'Thương hiệu tích - tiêu điểm',
             onPress: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const PartnerPage()));
+               Get.to(() => const PartnerPage());
             },
           ),
           SizedBox(height: 16.h),
-          const BrandsPartner(),
+    const BrandsPartner(),
           SizedBox(height: 1.h),
           TitleBackGroundProduct(
             title: 'Săn ưu đãi',
             onPress: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const EndowPage()));
+              Get.to(() => const EndowPage());
             },
           ),
           SizedBox(height: 16.h),

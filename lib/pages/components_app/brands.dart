@@ -1,6 +1,7 @@
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 import '../dependent_app/text_style.dart';
 import '../screens/partner_page/detail_partner_page/detail_partner_page.dart';
@@ -20,10 +21,7 @@ class Brand extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const DetailPartnerPage()));
+              Get.to(() => const DetailPartnerPage());
             },
             child: Container(
               margin: EdgeInsets.only(top: 7.h),

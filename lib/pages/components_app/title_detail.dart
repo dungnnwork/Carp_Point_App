@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:get/get.dart';
 import '../dependent_app/text_style.dart';
 
 class TitleDetail extends StatelessWidget {
@@ -23,7 +23,7 @@ class TitleDetail extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              Navigator.pop(context);
+              Get.back();
             },
             child: Container(
               padding: EdgeInsets.zero,

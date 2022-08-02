@@ -5,6 +5,8 @@ const ktextTitlePageColors = Color(0xff131313);
 const kTextPrimaryColors = Color(0xffe1b000);
 const kTextTitleBigColors = Color(0xff000000);
 const kHinText = Color(0xff717171);
+const textStyleColor = Color(0xff0f0f0f);
+const textPhoneColor      = Color(0xff263238);
 
 // Button
 const kbuttonBackgroundColors = Color(0xffffd233);
@@ -23,3 +25,4 @@ final kLineargradientBackgroundColors = LinearGradient(
 // Active Item
 const activeItemColors = Color(0xffffcd01);
 const kText000000 = Color(0xff000000);
+

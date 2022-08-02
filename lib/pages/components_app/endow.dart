@@ -1,9 +1,11 @@
+import 'package:carp_point_app/pages/screens/endow_page/offer_detail_page/offer_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 import '../dependent_app/constants.dart';
 import '../dependent_app/text_style.dart';
-import '../screens/endow_page/components/offer_details.dart';
+
 
 class Endow extends StatelessWidget {
   const Endow({
@@ -23,8 +25,7 @@ class Endow extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const OfferDetails()));
+        Get.to(() => const OfferDetails());
       },
       child: Container(
         margin: EdgeInsets.only(bottom: 16.h),
