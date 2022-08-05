@@ -1,255 +1,111 @@
+import 'package:carp_point_app/controllers/auth_controller/login_controller.dart';
+import 'package:carp_point_app/pages/screens/autheticate_pages/widget/button_auth.dart';
+import 'package:carp_point_app/pages/dependent_app/constants.dart';
+import 'package:carp_point_app/pages/dependent_app/text_style.dart';
+import 'package:carp_point_app/pages/screens/autheticate_pages/widget/creat_row_otp.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
-import '../login_page/button_main.dart';
-
-class VerifyOtp extends StatefulWidget {
-  const VerifyOtp({Key? key}) : super(key: key);
-
-  @override
-  State<VerifyOtp> createState() => _VerifyOtpState();
-}
-
-class _VerifyOtpState extends State<VerifyOtp> {
-  int numberTime = 180;
+// ignore: must_be_immutable
+class VerifyOtp extends StatelessWidget {
+    
+  VerifyOtp({Key? key}) : super(key: key);
+  final loginController = Get.put(LoginController());
+  final numberTime = 180;
+  final otp = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
+      backgroundColor: kBackgroundAuthPageColor,
+      body: loginController.isLoading(false) ? const Center(child: CircularProgressIndicator()) : SingleChildScrollView(
         child: Container(
-          decoration: const BoxDecoration(color: Colors.white),
-          child: Container(
-            margin: EdgeInsets.only(left: 19.w, top: 149.h, right: 19.w),
-            decoration: BoxDecoration(
-              color: const Color(0xfffdfdfd),
-              borderRadius: BorderRadius.circular(10),
-              boxShadow: const [
-                BoxShadow(blurRadius: 50, color: Color.fromRGBO(0, 0, 0, 0.1))
-              ],
-            ),
-            padding: EdgeInsets.only(
-                top: 45.h, left: 28.w, right: 29.w, bottom: 41.h),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Center(
-                  child: Text(
-                    'Xác nhận OTP',
-                    style: TextStyle(
-                        color: const Color(0xff0f0f0f),
-                        fontSize: 32.sp,
-                        fontWeight: FontWeight.w700),
+          margin: EdgeInsets.only(left: 19.w, top: 149.h, right: 19.w),
+          padding:EdgeInsets.only(top: 45.h, left: 28.w, right: 29.w, bottom: 41.h),
+          decoration: BoxDecoration(
+            color: kBackgroundColors,
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: const [
+              BoxShadow(blurRadius: 50, color: Color.fromRGBO(0, 0, 0, 0.1)),
+            ],
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
+                child: Text(
+                  'Xác nhận OTP',
+                  style: textStyleLogin,
+                ),
+              ),
+              SizedBox(
+                height: 48.h,
+              ),
+              Text(
+                'Nhập mã OTP',
+                style: textStylePhone,
+              ),
+              SizedBox(
+                height: 2.h,
+              ),
+        const CreateRowOtp(),
+              SizedBox(
+                height: 31.h,
+              ),
+              ButtonAuth(
+                text: 'Xác nhận',
+                onPressed: () {
+                  loginController.otpVerify(otp.text);
+                },
+              ),
+              SizedBox(
+                height: 25.h,
+              ),
+              Center(
+                child: SizedBox(
+                  width: 229.w,
+                  height: 46.h,
+                  child: RichText(
+                    text: TextSpan(
+                        style: const TextStyle(letterSpacing: -0.02),
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: 'Bạn có thể yêu cầu gửi lại mã mới sau ',
+                            style: noAccount,
+                          ),
+                          TextSpan(
+                            text: '$numberTime',
+                            style: TextStyle(
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w700,
+                              color: kTextPrimaryColors,
+                            ),
+                          ),
+                          TextSpan(
+                            text: ' giây',
+                            style: noAccount,
+                          ),
+                        ]),
+                    textAlign: TextAlign.center,
                   ),
                 ),
-                SizedBox(
-                  height: 48.h,
-                ),
-                Text(
-                  'Nhập mã OTP',
-                  style: TextStyle(
-                      color: const Color(0xff263238),
-                      fontSize: 18.sp,
-                      fontWeight: FontWeight.w700),
-                ),
-                SizedBox(
-                  height: 2.h,
-                ),
-                creatRowOtp(context),
-                SizedBox(
-                  height: 31.h,
-                ),
-                ButtonMain(text: 'Xác nhận').getButtonMain(),
-                SizedBox(
-                  height: 25.h,
-                ),
-                Center(
-                  child: SizedBox(
-                    width: 229.w,
-                    height: 46.h,
-                    child: RichText(
-                      text: TextSpan(
-                          style: const TextStyle(letterSpacing: -0.02),
-                          children: <TextSpan>[
-                            TextSpan(
-                                text: 'Bạn có thể yêu cầu gửi lại mã mới sau ',
-                                style: TextStyle(
-                                    fontSize: 14.sp,
-                                    fontWeight: FontWeight.w400,
-                                    color: Colors.black)),
-                            TextSpan(
-                                text: '$numberTime',
-                                style: TextStyle(
-                                    fontSize: 16.sp,
-                                    fontWeight: FontWeight.w700,
-                                    color: const Color(0xffE1B000))),
-                            TextSpan(
-                                text: ' giây',
-                                style: TextStyle(
-                                    fontSize: 14.sp,
-                                    fontWeight: FontWeight.w400,
-                                    color: Colors.black)),
-                          ]),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 19.h,
-                ),
-                Center(
+              ),
+              SizedBox(
+                height: 19.h,
+              ),
+              Center(
+                child: TextButton(
+                  onPressed: () {},
                   child: Text(
                     'Gửi lại mã',
-                    style: TextStyle(
-                        color: const Color(0xffE1B000),
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w400,
-                        letterSpacing: -0.02),
+                    style: resendCode,
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
     );
   }
-}
-
-Row creatRowOtp(BuildContext context) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
-      SizedBox(
-        width: 36.w,
-        height: 44.h,
-        child: TextFormField(
-          onChanged: (value) => {
-            if (value.length == 1) {FocusScope.of(context).nextFocus()}
-          },
-          keyboardType: TextInputType.number,
-          decoration: const InputDecoration(
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Color(0xffFFD233)),
-            ),
-          ),
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 24.sp, color: const Color(0xffFFD233)),
-          inputFormatters: [
-            LengthLimitingTextInputFormatter(1),
-            FilteringTextInputFormatter.digitsOnly
-          ],
-        ),
-      ),
-      SizedBox(
-        width: 36.w,
-        height: 44.h,
-        child: TextFormField(
-          onChanged: (value) => {
-            if (value.length == 1) {FocusScope.of(context).nextFocus()},
-            if (value.isEmpty) {FocusScope.of(context).previousFocus()}
-          },
-          keyboardType: TextInputType.number,
-          textAlign: TextAlign.center,
-          decoration: const InputDecoration(
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Color(0xffFFD233)),
-            ),
-          ),
-          style: TextStyle(fontSize: 24.sp, color: const Color(0xffFFD233)),
-          inputFormatters: [
-            LengthLimitingTextInputFormatter(1),
-            FilteringTextInputFormatter.digitsOnly
-          ],
-        ),
-      ),
-      SizedBox(
-        width: 36.w,
-        height: 44.h,
-        child: TextFormField(
-          onChanged: (value) => {
-            if (value.length == 1) {FocusScope.of(context).nextFocus()},
-            if (value.isEmpty) {FocusScope.of(context).previousFocus()}
-          },
-          keyboardType: TextInputType.number,
-          decoration: const InputDecoration(
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Color(0xffFFD233)),
-            ),
-          ),
-          style: TextStyle(fontSize: 24.sp, color: const Color(0xffFFD233)),
-          textAlign: TextAlign.center,
-          inputFormatters: [
-            LengthLimitingTextInputFormatter(1),
-            FilteringTextInputFormatter.digitsOnly
-          ],
-        ),
-      ),
-      SizedBox(
-        width: 36.w,
-        height: 44.h,
-        child: TextFormField(
-          onChanged: (value) => {
-            if (value.length == 1) {FocusScope.of(context).nextFocus()},
-            if (value.isEmpty) {FocusScope.of(context).previousFocus()}
-          },
-          keyboardType: TextInputType.number,
-          textAlign: TextAlign.center,
-          decoration: const InputDecoration(
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Color(0xffFFD233)),
-            ),
-          ),
-          style: TextStyle(fontSize: 24.sp, color: const Color(0xffFFD233)),
-          inputFormatters: [
-            LengthLimitingTextInputFormatter(1),
-            FilteringTextInputFormatter.digitsOnly
-          ],
-        ),
-      ),
-      SizedBox(
-        width: 36.w,
-        height: 44.h,
-        child: TextFormField(
-          onChanged: (value) => {
-            if (value.length == 1) {FocusScope.of(context).nextFocus()},
-            if (value.isEmpty) {FocusScope.of(context).previousFocus()}
-          },
-          keyboardType: TextInputType.number,
-          textAlign: TextAlign.center,
-          decoration: const InputDecoration(
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Color(0xffFFD233)),
-            ),
-          ),
-          style: TextStyle(fontSize: 24.sp, color: const Color(0xffFFD233)),
-          inputFormatters: [
-            LengthLimitingTextInputFormatter(1),
-            FilteringTextInputFormatter.digitsOnly
-          ],
-        ),
-      ),
-      SizedBox(
-        width: 36.w,
-        height: 44.h,
-        child: TextFormField(
-          onChanged: (value) => {
-            if (value.isEmpty) {FocusScope.of(context).previousFocus()}
-          },
-          keyboardType: TextInputType.number,
-          textAlign: TextAlign.center,
-          decoration: const InputDecoration(
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Color(0xffFFD233)),
-            ),
-          ),
-          style: TextStyle(fontSize: 24.sp, color: const Color(0xffFFD233)),
-          inputFormatters: [
-            LengthLimitingTextInputFormatter(1),
-            FilteringTextInputFormatter.digitsOnly
-          ],
-        ),
-      ),
-    ],
-  );
 }

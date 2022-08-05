@@ -13,6 +13,7 @@ const kbuttonBackgroundColors = Color(0xffffd233);
 const kTextButton = Color(0xff161616);
 
 // Background
+const kBackgroundAuthPageColor = Color(0xffe5e5e5);
 const kBackgroundColors = Color(0xffffffff);
 final kLineargradientBackgroundColors = LinearGradient(
   begin: Alignment.topCenter,

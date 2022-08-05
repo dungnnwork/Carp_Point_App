@@ -1,6 +1,6 @@
+import 'package:carp_point_app/pages/screens/autheticate_pages/widget/button_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../login_page/button_main.dart';
 
 class ResetPassPage extends StatefulWidget {
   const ResetPassPage({Key? key}) : super(key: key);
@@ -123,7 +123,7 @@ class _ResetPassPageState extends State<ResetPassPage> {
                 ),
               ),
               SizedBox(height: 16.h),
-              ButtonMain(text: 'Xác nhận').getButtonMain()
+              ButtonAuth(text: 'Xác nhận'),
             ]),
           ),
         ),

@@ -88,6 +88,7 @@ final TextStyle noAccount = TextStyle(
   fontSize: 14.sp,
   fontWeight: FontWeight.w400,
   color: kTextButton,
+  letterSpacing: -0.02,
 );
 final TextStyle descriptAcc = TextStyle(
   fontSize: 14.sp,
@@ -103,12 +104,14 @@ final TextStyle inforDescriptAcc = TextStyle(
 final TextStyle textButtonStyle = TextStyle(
   fontSize: 18.sp,
   fontWeight: FontWeight.w400,
+  color: kTextButton,
 );
 
 final TextStyle resendCode = TextStyle(
   fontSize: 14.sp,
   fontWeight: FontWeight.w400,
   color: kTextPrimaryColors,
+  letterSpacing: -0.02,
 );
 
 final TextStyle textStyleTitleEndow = TextStyle(

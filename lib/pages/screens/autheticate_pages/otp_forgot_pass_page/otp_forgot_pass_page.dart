@@ -1,16 +1,12 @@
+import 'package:carp_point_app/pages/screens/autheticate_pages/widget/button_auth.dart';
+import 'package:carp_point_app/pages/dependent_app/text_style.dart';
+import 'package:carp_point_app/pages/screens/autheticate_pages/widget/creat_row_otp.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../login_page/button_main.dart';
 
-class OtpForgotPassPage extends StatefulWidget {
-  const OtpForgotPassPage({Key? key}) : super(key: key);
-
-  @override
-  State<OtpForgotPassPage> createState() => _OtpForgotPassPageState();
-}
-
-class _OtpForgotPassPageState extends State<OtpForgotPassPage> {
+// ignore: must_be_immutable
+class OtoForgotPassPage extends StatelessWidget {
+  OtoForgotPassPage({Key? key}) : super(key: key);
   int numberTime = 180;
   @override
   Widget build(BuildContext context) {
@@ -36,10 +32,7 @@ class _OtpForgotPassPageState extends State<OtpForgotPassPage> {
                 Center(
                   child: Text(
                     'Nhập mã OTP',
-                    style: TextStyle(
-                        color: const Color(0xff0f0f0f),
-                        fontSize: 32.sp,
-                        fontWeight: FontWeight.w700),
+                    style: textStyleLogin,
                   ),
                 ),
                 SizedBox(
@@ -48,27 +41,20 @@ class _OtpForgotPassPageState extends State<OtpForgotPassPage> {
                 Text(
                   'Chúng tôi đã gửi mã xác nhận OTP bao gồm 6 chữ đến số điện thoại của bạn, vui lòng nhập vào ô bên dưới để đặt lại mật khẩu.',
                   textAlign: TextAlign.justify,
-                  style: TextStyle(
-                      color: const Color(0xff0F0F0F),
-                      fontSize: 12.sp,
-                      fontWeight: FontWeight.w400,
-                      letterSpacing: -0.02),
+                  style: noAccount,
                 ),
                 SizedBox(
                   height: 37.h,
                 ),
                 Text(
                   'Nhập mã OTP',
-                  style: TextStyle(
-                      color: const Color(0xff263238),
-                      fontSize: 18.sp,
-                      fontWeight: FontWeight.w700),
+                  style: textStylePhone,
                 ),
-                creatRowOtp(context),
+          const CreateRowOtp(),
                 SizedBox(
                   height: 31.h,
                 ),
-                ButtonMain(text: 'Xác nhận').getButtonMain(),
+                ButtonAuth(text: 'Xác nhận'),
                 SizedBox(
                   height: 25.h,
                 ),
@@ -82,10 +68,8 @@ class _OtpForgotPassPageState extends State<OtpForgotPassPage> {
                           children: <TextSpan>[
                             TextSpan(
                                 text: 'Bạn có thể yêu cầu gửi lại mã mới sau ',
-                                style: TextStyle(
-                                    fontSize: 14.sp,
-                                    fontWeight: FontWeight.w400,
-                                    color: Colors.black)),
+                               style: noAccount,
+                            ),
                             TextSpan(
                                 text: '$numberTime',
                                 style: TextStyle(
@@ -94,10 +78,8 @@ class _OtpForgotPassPageState extends State<OtpForgotPassPage> {
                                     color: const Color(0xffE1B000))),
                             TextSpan(
                                 text: ' giây',
-                                style: TextStyle(
-                                    fontSize: 14.sp,
-                                    fontWeight: FontWeight.w400,
-                                    color: Colors.black)),
+                                style: noAccount,
+                            ),
                           ]),
                       textAlign: TextAlign.center,
                     ),
@@ -109,11 +91,7 @@ class _OtpForgotPassPageState extends State<OtpForgotPassPage> {
                 Center(
                   child: Text(
                     'Gửi lại mã',
-                    style: TextStyle(
-                        color: const Color(0xffE1B000),
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w400,
-                        letterSpacing: -0.02),
+                    style: resendCode,
                   ),
                 ),
               ],
@@ -123,142 +101,4 @@ class _OtpForgotPassPageState extends State<OtpForgotPassPage> {
       ),
     );
   }
-}
-
-Row creatRowOtp(BuildContext context) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
-      SizedBox(
-        width: 36.w,
-        height: 44.h,
-        child: TextFormField(
-          onChanged: (value) => {
-            if (value.length == 1) {FocusScope.of(context).nextFocus()}
-          },
-          keyboardType: TextInputType.number,
-          decoration: const InputDecoration(
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Color(0xffFFD233)),
-            ),
-          ),
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 24.sp, color: const Color(0xffFFD233)),
-          inputFormatters: [
-            LengthLimitingTextInputFormatter(1),
-            FilteringTextInputFormatter.digitsOnly
-          ],
-        ),
-      ),
-      SizedBox(
-        width: 36.w,
-        height: 44.h,
-        child: TextFormField(
-          onChanged: (value) => {
-            if (value.length == 1) {FocusScope.of(context).nextFocus()},
-            if (value.isEmpty) {FocusScope.of(context).previousFocus()}
-          },
-          keyboardType: TextInputType.number,
-          textAlign: TextAlign.center,
-          decoration: const InputDecoration(
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Color(0xffFFD233)),
-            ),
-          ),
-          style: TextStyle(fontSize: 24.sp, color: const Color(0xffFFD233)),
-          inputFormatters: [
-            LengthLimitingTextInputFormatter(1),
-            FilteringTextInputFormatter.digitsOnly
-          ],
-        ),
-      ),
-      SizedBox(
-        width: 36.w,
-        height: 44.h,
-        child: TextFormField(
-          onChanged: (value) => {
-            if (value.length == 1) {FocusScope.of(context).nextFocus()},
-            if (value.isEmpty) {FocusScope.of(context).previousFocus()}
-          },
-          keyboardType: TextInputType.number,
-          decoration: const InputDecoration(
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Color(0xffFFD233)),
-            ),
-          ),
-          style: TextStyle(fontSize: 24.sp, color: const Color(0xffFFD233)),
-          textAlign: TextAlign.center,
-          inputFormatters: [
-            LengthLimitingTextInputFormatter(1),
-            FilteringTextInputFormatter.digitsOnly
-          ],
-        ),
-      ),
-      SizedBox(
-        width: 36.w,
-        height: 44.h,
-        child: TextFormField(
-          onChanged: (value) => {
-            if (value.length == 1) {FocusScope.of(context).nextFocus()},
-            if (value.isEmpty) {FocusScope.of(context).previousFocus()}
-          },
-          keyboardType: TextInputType.number,
-          textAlign: TextAlign.center,
-          decoration: const InputDecoration(
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Color(0xffFFD233)),
-            ),
-          ),
-          style: TextStyle(fontSize: 24.sp, color: const Color(0xffFFD233)),
-          inputFormatters: [
-            LengthLimitingTextInputFormatter(1),
-            FilteringTextInputFormatter.digitsOnly
-          ],
-        ),
-      ),
-      SizedBox(
-        width: 36.w,
-        height: 44.h,
-        child: TextFormField(
-          onChanged: (value) => {
-            if (value.length == 1) {FocusScope.of(context).nextFocus()},
-            if (value.isEmpty) {FocusScope.of(context).previousFocus()}
-          },
-          keyboardType: TextInputType.number,
-          textAlign: TextAlign.center,
-          decoration: const InputDecoration(
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Color(0xffFFD233)),
-            ),
-          ),
-          style: TextStyle(fontSize: 24.sp, color: const Color(0xffFFD233)),
-          inputFormatters: [
-            LengthLimitingTextInputFormatter(1),
-            FilteringTextInputFormatter.digitsOnly
-          ],
-        ),
-      ),
-      SizedBox(
-        width: 36.w,
-        height: 44.h,
-        child: TextFormField(
-          onChanged: (value) => {
-            if (value.isEmpty) {FocusScope.of(context).previousFocus()}
-          },
-          keyboardType: TextInputType.number,
-          textAlign: TextAlign.center,
-          decoration: const InputDecoration(
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Color(0xffFFD233)),
-            ),
-          ),
-          style: TextStyle(fontSize: 24.sp, color: const Color(0xffFFD233)),
-          inputFormatters: [
-            LengthLimitingTextInputFormatter(1),
-            FilteringTextInputFormatter.digitsOnly
-          ],
-        ),
-      ),
-    ],
-  );
 }

@@ -1,7 +1,9 @@
+import 'package:carp_point_app/pages/screens/autheticate_pages/widget/button_auth.dart';
+import 'package:carp_point_app/pages/dependent_app/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../login_page/button_main.dart';
+
 import '../login_page/text_field_log.dart';
 
 class ForgotPassPage extends StatefulWidget {
@@ -33,10 +35,7 @@ class _ForgotPassPageState extends State<ForgotPassPage> {
           Center(
             child: Text(
               'Quên mật khẩu',
-              style: TextStyle(
-                  color: const Color(0xff263238),
-                  fontSize: 32.sp,
-                  fontWeight: FontWeight.w700),
+              style: textStyleLogin,
             ),
           ),
           SizedBox(
@@ -45,20 +44,15 @@ class _ForgotPassPageState extends State<ForgotPassPage> {
           Text(
             'Vui lòng nhập số điện thoại vào ô bên dưới để chúng tôi giúp bạn đặt lại mật khẩu.',
             textAlign: TextAlign.justify,
-            style: TextStyle(
-                color: const Color(0xff0F0F0F),
-                fontSize: 14.sp,
-                fontWeight: FontWeight.w400),
+            style: noAccount,
           ),
           SizedBox(
             height: 48.h,
           ),
           Text(
             'Nhập số điện thoại',
-            style: TextStyle(
-                color: const Color(0xff263238),
-                fontSize: 18.sp,
-                fontWeight: FontWeight.w700),
+            
+            style: textStylePhone,
           ),
           SizedBox(
             height: 2.h,
@@ -70,7 +64,7 @@ class _ForgotPassPageState extends State<ForgotPassPage> {
           SizedBox(
             height: 25.h,
           ),
-          ButtonMain(text: 'Tiếp tục').getButtonMain(),
+          ButtonAuth(text: 'Tiếp tục'),
         ]),
       ),
     );
